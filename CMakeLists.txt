@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
 project(raylib)
 
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+INCLUDE(cmake/ModuleImport.cmake)
+INCLUDE(cmake/ModuleCompileOptions.cmake)
+ModuleSetCompileOptions()
+ModuleSetWinCompilerFlags()
 # Avoid excessive expansion of variables in conditionals. In particular, if
 # "PLATFORM" is "DRM" then:
 #
@@ -20,7 +25,7 @@ cmake_policy(SET CMP0063 NEW)
 
 # Directory for easier includes
 # Anywhere you see include(...) you can check <root>/cmake for that file
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+# list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 # RAYLIB_IS_MAIN determines whether the project is being used from root
 # or if it is added as a dependency (through add_subdirectory for example).
