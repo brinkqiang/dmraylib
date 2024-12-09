@@ -109,6 +109,7 @@ zig-cache/
 zig-out/
 build/
 build-*/
+bin/
 docgen_tmp/
 
 # Parser stuff
